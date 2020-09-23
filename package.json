@@ -10,12 +10,18 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "authy": "^1.4.0",
+    "authy-client": "^1.1.4",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.6",
     "react": "16.13.1",
-    "react-native": "0.63.2"
+    "react-native": "0.63.2",
+    "twilio": "^3.49.3",
+    "validator": "^13.1.17"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

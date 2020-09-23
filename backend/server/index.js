@@ -1,8 +1,14 @@
-const express = require("express");
+require('../../node_modules/dotenv/config')
+require('../models/Patients');
+
+const express = require('../../node_modules/express');
 var cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-var app = express();
+const bodyParser = require('../../node_modules/body-parser');
 const mongoose = require('mongoose');
+var app = express();
+
+var config = require('../config')
+var PORT = config.PORT;
 
 mongoose.connect('mongodb+srv://nisargoza22:mongodbuser%402000@cluster22.j0eqh.mongodb.net/abc?retryWrites=true&w=majority', {
     useNewUrlParser: true,
@@ -29,10 +35,9 @@ app.use((req, res, next) => {
   next();
 })
 
-app.get('/',function(req,res){
-    res.send("Hello!!");
-})
+const patientRoutes = require('../routes/patientRoutes')
+app.use("/api/health", patientRoutes);
 
-app.listen(3000, function(){
-    console.log("Server running on port : 3000!");
+app.listen(PORT, function(){
+    console.log("Server running on port : " + PORT);
   })
