@@ -120,8 +120,8 @@ class patientLogin extends Component {
             <View style={styles.container}>
 
                 <View style={styles.headerPanel}>
-                    <Text style={styles.headerText1}>Patient.</Text>
-                    <Text style={styles.headerText2}>Login.</Text>
+                    <Text style={styles.headerText1}>Patient</Text>
+                    <Text style={styles.headerText2}>Login</Text>
                 </View>
 
 
@@ -201,7 +201,7 @@ class patientLogin extends Component {
                         style={styles.button}
                         onPress={() => this.props.navigation.navigate("PatientRegister")}
                     >
-                        <Text style={styles.buttonText} >SignUp(test)</Text>
+                        <Text style={styles.buttonText} >SignUp</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -224,7 +224,7 @@ export default patientLogin;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#FFBE85",
+        backgroundColor: "#03a9f4",
         // justifyContent: 'space-around',
         // alignItems: 'center',
     },
@@ -235,12 +235,12 @@ const styles = StyleSheet.create({
     },
     headerText1: {
         fontFamily: 'Poppins-SemiBold',
-        fontSize: 30,
+        fontSize: 50,
         color: "#ffffff",
     },
     headerText2: {
         fontFamily: 'Poppins-SemiBold',
-        fontSize: 80,
+        fontSize: 40,
         color: "#ffffff",
     },
     loginPanel: {

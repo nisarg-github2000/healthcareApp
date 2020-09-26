@@ -12,7 +12,7 @@ class splashScreen extends Component {
         setTimeout(()=>
         {
             this.props.navigation.navigate("SelectRole");
-        },900);
+        },9000);
     }
 
     componentDidMount(){

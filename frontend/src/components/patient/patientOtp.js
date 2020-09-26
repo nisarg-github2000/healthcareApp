@@ -57,7 +57,8 @@ class patientOtpScreen extends Component {
                 this.state.token = data.jwtToken;
                 console.log(this.state.token);
                 this.hideLoader();
-                //this.props.navigation.navigate('BookServicesNavigator', { token: this.state.token });
+                this.storeToken(data.jwtToken);
+                this.props.navigation.navigate('PatientHome', { token: this.state.token });
             }
         })
     }
@@ -85,6 +86,16 @@ class patientOtpScreen extends Component {
         })
     }
 
+    storeToken = async (token) => {
+        try {
+            await AsyncStorage.setItem(
+                'token',
+                token
+            );
+        } catch (error) {
+            // Error saving data
+        }
+    };
 
     render() {
 

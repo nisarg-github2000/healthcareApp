@@ -34,6 +34,7 @@ class patientRegister extends Component {
         name: '',
         email: '',
         phone: '',
+        age: '',
         authy_Id: null
     }
 
@@ -114,8 +115,8 @@ class patientRegister extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.headerPanel}>
-                    <Text style={styles.headerText1}>patient.</Text>
-                    <Text style={styles.headerText2}>register.</Text>
+                    <Text style={styles.headerText1}>Patient</Text>
+                    <Text style={styles.headerText2}>Registration</Text>
                 </View>
 
                 <View style={styles.registerPanel}>
@@ -132,6 +133,13 @@ class patientRegister extends Component {
                             placeholder="Email"
                             keyboardType='email-address'
                             onChangeText={(val) => this.onChangeText('email', val)}
+                        />
+                    </Item>
+                    <Item rounded style={styles.item}>
+                        <Input
+                            style={styles.registerAge}
+                            placeholder="Age"
+                            onChangeText={(val) => this.onChangeText('age', val)}
                         />
                     </Item>
                     <View style={styles.phoneContainer}>
@@ -223,7 +231,7 @@ export default patientRegister;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#FFBE85",
+        backgroundColor: "#03a9f4",
         // justifyContent: 'space-around',
         // alignItems: 'center',
     },
@@ -234,19 +242,19 @@ const styles = StyleSheet.create({
     },
     headerText1: {
         fontFamily: 'Poppins-SemiBold',
-        fontSize: 30,
+        fontSize: 50,
         color: "#ffffff",
     },
     headerText2: {
         fontFamily: 'Poppins-SemiBold',
-        fontSize: 70,
+        fontSize: 40,
         color: "#ffffff",
     },
     registerPanel: {
-        flex: 1.9,
+        flex: 3.0,
         backgroundColor: "#FFFFFF",
         borderRadius: 50,
-        marginHorizontal: "5%",
+        marginHorizontal: "6%",
         padding: "6%",
         justifyContent: 'center',
     },
@@ -260,6 +268,9 @@ const styles = StyleSheet.create({
         fontSize: 17,
     },
     registerEmail: {
+        fontSize: 17,
+    },
+    registerAge: {
         fontSize: 17,
     },
     phoneContainer: {

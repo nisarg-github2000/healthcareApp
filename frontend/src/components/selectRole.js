@@ -1,7 +1,24 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 class selectRole extends Component {
+
+    checkToken = async () => {
+             try {
+             let token = await AsyncStorage.getItem('token');
+                
+                 if(token != null) {
+                     this.props.navigation.navigate("PatientHome");
+                 }else{
+                     this.props.navigation.navigate("PatientLogin");
+                 }
+    
+             } catch (error) {
+                 // Error saving data
+             }
+         };
+
     render() {
         return (
             <View style={styles.container}>
@@ -14,7 +31,7 @@ class selectRole extends Component {
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => this.props.navigation.navigate("PatientLogin")}
+                    onPress={() => this.checkToken() }
                 >
                     <Text style={styles.buttonText} >Patient</Text>
                 </TouchableOpacity>
@@ -28,7 +45,7 @@ export default selectRole;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#FFBE85",
+        backgroundColor: "#03a9f4",
         justifyContent: 'center',
     },
     containerText: {
