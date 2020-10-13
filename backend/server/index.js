@@ -1,5 +1,6 @@
 require('../../node_modules/dotenv/config')
 require('../models/Patients');
+require('../models/Doctors');
 
 const express = require('../../node_modules/express');
 var cookieParser = require('cookie-parser');
@@ -37,6 +38,8 @@ app.use((req, res, next) => {
 
 const patientRoutes = require('../routes/patientRoutes')
 app.use("/api/health", patientRoutes);
+const doctorRoutes = require('../routes/doctorRoutes')
+app.use("/api/health", doctorRoutes);
 
 app.listen(PORT, function(){
     console.log("Server running on port : " + PORT);
