@@ -26,7 +26,7 @@ exports.patientDashboard = function (req, res) {
                         error: "Something went wrong. Please try after sometime."
                     });
                 }
-            });
+            }); 
         }
     })
 }

@@ -14,7 +14,6 @@ var doctorSchema = new mongoose.Schema({
     },
     age: {
         type: String,
-        unique: true,
         required: [true, 'Please provide your age']
     },
     email: {

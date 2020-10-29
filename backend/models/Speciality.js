@@ -10,7 +10,7 @@ var specialitySchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        maxlength: 3000
+        maxlength: 5000
     }
 })
 
