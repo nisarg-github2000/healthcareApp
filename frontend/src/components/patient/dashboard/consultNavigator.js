@@ -13,6 +13,12 @@ import mentalhealth from './diseases/mentalhealth';
 import urnologist from './diseases/urnologist';
 import patientHome from '../patientHome';
 import orthopedic from './diseases/orthopedic';
+import remedyDetail from './remedyDetail';
+import addRemedy from './addRemedy';
+import ccDoctor from './diseases/ccDoctor';
+import editProfile from './editProfile';
+import booking from './diseases/booking';
+import appointment from './diseases/appointment';
 
 const Stack = createStackNavigator();
 
@@ -33,6 +39,13 @@ class consultNavigator extends Component {
                     <Stack.Screen name="Mental Health" component={mentalhealth} options={{ title: "Mental Health" }}/>
                     <Stack.Screen name="Urnologist" component={urnologist} options={{ title: "Urnologist" }}/>
                     <Stack.Screen name="Orthopedic" component={orthopedic} options={{ title: "Orthopedic" }}/>
+                    <Stack.Screen name="Corona Home Remedies" component={remedyDetail} options={{ title: "Corona Home Remedies" }}/>
+                    <Stack.Screen name="Add Your Home Remedy" component={addRemedy} options={{ title: "Add Your Home Remedy" }}/>
+                    <Stack.Screen name="Doctor Info" component={ccDoctor} options={{ title: "Doctor Info" }}/>
+                    <Stack.Screen name="Edit Profile" component={editProfile} options={{ title: "Edit Profile" }}/>
+                    <Stack.Screen name="Booking" component={booking} options={{ title: "Booking" }}/>
+                    <Stack.Screen name="Appointment" component={appointment} options={{ title: "Appointment" }}/>
+                    
                 </Stack.Navigator>
            // {/* </NavigationContainer> */}
         )    

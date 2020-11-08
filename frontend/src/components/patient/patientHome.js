@@ -26,6 +26,7 @@ import consultTab from './dashboard/consultTab';
 import consultNavigator from './dashboard/consultNavigator';
 import { Navigate } from 'grommet-icons';
 import { NavigationContainer } from '@react-navigation/native';
+import remedyNavigator from './dashboard/remedyNavigator';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -46,7 +47,7 @@ class patientHome extends Component {
                     activeTintColor: '#FFFFFF',
                     inactiveTintColor: '#F8F8F8',
                     style:{
-                        backgroundColor: '#03a9f4'
+                        backgroundColor: '#0274ED'
                     },
                     labelStyle: {
                         textAlign: 'center',

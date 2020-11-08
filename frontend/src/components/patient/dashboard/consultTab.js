@@ -44,7 +44,7 @@ class consultTab extends Component {
                       this.props.navigation.navigate('Cough and Cold') }   }
                   >
                   <Card.Content style={styles.Content}>
-                      <Avatar.Image size={80} source={require('../../../../resources/coughcold.jpg')} />
+                      <Avatar.Image size={80} source={require('../../../../resources/sneeze.png')} />
                       
                   </Card.Content>
                   <Text style={{fontWeight:"bold",fontSize:16,textAlign:"center",marginTop:7}}>Cough & Fever</Text>
@@ -56,7 +56,7 @@ class consultTab extends Component {
                       this.props.navigation.navigate('Dietician') }       }
                   >
                   <Card.Content style={styles.Content}>
-                      <Avatar.Image size={80} source={require('../../../../resources/dietician.jpg')} />
+                      <Avatar.Image size={80} source={require('../../../../resources/apple.png')} />
                       
                   </Card.Content>
                   <Text style={{fontWeight:"bold",fontSize:16,textAlign:"center",marginTop:7}}>Dietician</Text>
@@ -70,7 +70,7 @@ class consultTab extends Component {
                   onPress={() => { console.log("Card Pressed");
                   this.props.navigation.navigate('Gastroenterologist') }       }>
                       <Card.Content style={styles.Content}>
-                          <Avatar.Image size={80} source={require('../../../../resources/gastroenterologist.jpg')} />
+                          <Avatar.Image size={80} source={require('../../../../resources/stomach.png')} />
                           
                       </Card.Content>
                       <Text style={{fontWeight:"bold",fontSize:16,textAlign:"center",marginTop:7}}>Gastroenterologist</Text>
@@ -81,7 +81,7 @@ class consultTab extends Component {
                       onPress={() => { console.log("Card Pressed");
                       this.props.navigation.navigate('Cardiologist') }       }>
                       <Card.Content style={styles.Content}>
-                          <Avatar.Image size={80} source={require('../../../../resources/cardiologist.jpg')} />
+                          <Avatar.Image size={80} source={require('../../../../resources/cardiology.png')} />
                           
                       </Card.Content>
                       <Text style={{fontWeight:"bold",fontSize:16,textAlign:"center",marginTop:7}}>Cardiologist</Text>
@@ -94,7 +94,7 @@ class consultTab extends Component {
                       onPress={() => { console.log("Card Pressed");
                       this.props.navigation.navigate('Orthopedic') }   }>
                       <Card.Content style={styles.Content}>
-                          <Avatar.Image size={80} source={require('../../../../resources/orthopedic.jpg')} />
+                          <Avatar.Image size={80} source={require('../../../../resources/orthopedics.png')} />
                           
                       </Card.Content>
                       <Text style={{fontWeight:"bold",fontSize:16,textAlign:"center",marginTop:7}}>Orthopedic</Text>
@@ -104,7 +104,7 @@ class consultTab extends Component {
                       onPress={() => { console.log("Card Pressed");
                       this.props.navigation.navigate('Gianaecologist') }       }>
                       <Card.Content style={styles.Content}>
-                          <Avatar.Image size={80} source={require('../../../../resources/gianaecologist.jpg')} />
+                          <Avatar.Image size={80} source={require('../../../../resources/pregnancy.png')} />
                         
                       </Card.Content>
                       <Text style={{fontWeight:"bold",fontSize:16,textAlign:"center",marginTop:7}}>Gynecologist</Text>
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
       width : 175,
       borderRadius:20,
       elevation:10,
-      backgroundColor:'#ebebeb',
+      backgroundColor:'rgb(232, 235, 237)',
       alignItems:'center',
       justifyContent:'center',
     },

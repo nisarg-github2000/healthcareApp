@@ -294,6 +294,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     centeredView: {
+        marginTop:-140,
         flex: 1,
         justifyContent: "center",
         alignItems: 'flex-end',

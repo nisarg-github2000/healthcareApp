@@ -22,10 +22,10 @@ class selectRole extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.containerText}>Select your Role</Text>
+                <Text style={styles.containerText}>Select your preference</Text>
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => this.props.navigation.navigate("DoctorLogin")}
+                    onPress={() => this.props.navigation.navigate("DoctorHome")}
                 >
                     <Text style={styles.buttonText} >Doctor</Text>
                 </TouchableOpacity>
@@ -52,19 +52,20 @@ const styles = StyleSheet.create({
     containerText: {
         alignSelf: 'center',
         fontFamily: 'Poppins-SemiBoldItalic',
-        fontSize: 27,
-        marginHorizontal: '20%',
+        fontSize: 26,
+        marginBottom:30,
+        marginHorizontal: '10%',
         textAlign: 'center',
     },
     button: {
         backgroundColor: "#1f1f1f",
         fontSize: 20,
-        borderRadius: 30,
-        marginVertical: '5%',
-        marginHorizontal: '15%',
+        borderRadius: 20,
+        marginHorizontal:"20%",
+        marginBottom:"6%",
         paddingLeft: 25,
         paddingRight: 25,
-        height: 55,
+        height: 50,
         justifyContent: 'center',
         alignItems: 'center',
     },

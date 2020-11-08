@@ -100,7 +100,6 @@ class profileTab extends Component {
                         }}>N</Text></TouchableOpacity></View>
                     </View>
                 </View>
-                    
                 <View style={{
                     boxSizing: "border-box",
                     width: 382,
@@ -110,6 +109,50 @@ class profileTab extends Component {
                     boxShadow: "0px 0px 0px 0px rgba(0, 0, 0, 0.25)",
                     borderStyle: "solid",
                     
+                    borderColor: "#0D47BA",
+                    borderTopWidth: 0,
+                    borderBottomWidth: 3,
+                    borderLeftWidth: 0,
+                    borderRightWidth: 0
+                }}><Text style={{
+                    width: 171,
+                    height: 21,
+                    marginTop:6,
+                    marginLeft:-42,
+                    color: "#0274ED",
+                    fontSize: 15,
+                    letterSpacing: 0,
+                    lineHeight: 28,
+                    fontWeight:"bold",
+                    textAlign: "center"
+                }}>PENDING</Text></View>
+                <View style={{flexDirection:"row"}}>
+                    <Text style={{
+                        width: 128,
+                        height: 30,
+                        overflow: "hidden",
+                        marginLeft:22,
+                        marginTop:20,
+                        color: "#6a6868",
+                        fontSize: 22,
+                        letterSpacing: 0,
+                        lineHeight: 23,
+                        
+                        fontStyle: "normal",
+                        textAlign: "center", 
+                     }}>
+                        Dr.John Doe</Text>
+                    <View style={{marginTop:11,marginLeft:200}}><Ionicons name="alert-circle" size={35} color="orange"/></View>
+                </View>   
+                <View style={{
+                    boxSizing: "border-box",
+                    width: 382,
+                    height: 37,
+                    marginLeft:10,
+                    backgroundColor: "rgba(42, 162, 148, 0)",
+                    boxShadow: "0px 0px 0px 0px rgba(0, 0, 0, 0.25)",
+                    borderStyle: "solid",
+                    marginTop:20,
                     borderColor: "#0D47BA",
                     borderTopWidth: 0,
                     borderBottomWidth: 3,
@@ -129,14 +172,16 @@ class profileTab extends Component {
                 }}>COMPLETED CONSULTS</Text></View>
 
                 <View>
-                <TouchableOpacity style={{
-                     backgroundColor: '#03a9f4',
+                <TouchableOpacity onPress={() => { console.log("Button Pressed");
+                      this.props.navigation.navigate('Edit Profile') }   }
+                style={{
+                     backgroundColor: '#0274ED',
                      minHeight: 60,
                      maxHeight: 60,
                      minWidth: 60,
                      maxWidth: 60,
                      borderRadius: 50,
-                     marginTop:360,
+                     marginTop:250,
                      marginLeft:330,
                      alignItems:"center",
                      justifyContent:"center"

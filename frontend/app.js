@@ -15,7 +15,10 @@ import doctorRegister from './src/components/doctor/doctorRegister';
 import doctorOtpScreen from './src/components/doctor/doctorOtp';
 import { StyleSheet } from 'react-native';
 import consultNavigator from './src/components/patient/dashboard/consultNavigator';
-
+import doctorHome from './src/components/doctor/doctorHome';
+import ccDoctor from './src/components/patient/dashboard/diseases/ccDoctor';
+import {BackdropProvider} from 'react-native-propel-kit';
+import doctorNavigator from './src/components/doctor/doctorNavigator';
 
 
 const Stack = createStackNavigator();
@@ -23,24 +26,27 @@ const Stack = createStackNavigator();
 class App extends Component {
     render() {
         return (
+            <BackdropProvider>
             <NavigationContainer>
                 <Stack.Navigator>
                     {/* <Stack.Screen name="Test" component={test} options={{headerShown:false}}/> */}
                     <Stack.Screen name="SplashScreen" component={splashScreen} options={{ headerShown: false }}/>
                     <Stack.Screen name="SelectRole" component={selectRole} options={{ headerShown: false }}/> 
-                    {/* Customer Routes */}
+                    {/* Patient Routes */}
                     <Stack.Screen name="PatientLogin" component={patientLogin} options={{ headerShown: false }}/>
                     <Stack.Screen name="PatientRegister" component={patientRegister} options={{ headerShown: false }}/>
                     <Stack.Screen name="PatientOtp" component={patientOtpScreen} />
                     <Stack.Screen name="PatientHome" component={consultNavigator} options={{ headerShown: false }} />
+                    
                     {/* Doctor Routes */}
                     <Stack.Screen name="DoctorLogin" component={doctorLogin} options={{ headerShown: false }}/>
                     <Stack.Screen name="DoctorRegister" component={doctorRegister} options={{ headerShown: false }}/>
-                    {/* <Stack.Screen name="DoctorHome" component={} options={{ headerShown: false }}/> */}
+                    <Stack.Screen name="DoctorHome" component={doctorNavigator} options={{ headerShown: false }}/> 
                     <Stack.Screen name="DoctorOtp" component={doctorOtpScreen} options={{ headerShown: false }}/>
                     
                 </Stack.Navigator>
             </NavigationContainer>
+            </BackdropProvider>
         )    
     }
 }
