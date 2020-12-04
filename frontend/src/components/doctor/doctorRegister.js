@@ -83,7 +83,7 @@ class doctorRegister extends Component {
         const phone = code + "-" + (this.state.phone);
         console.log(phone);
 
-        fetch("http://192.168.0.104:3000/api/health/doctor/register", {
+        fetch("http://192.168.2.103:3000/api/health/doctor/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

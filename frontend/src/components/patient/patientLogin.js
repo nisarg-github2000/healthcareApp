@@ -79,7 +79,7 @@ class patientLogin extends Component {
                 const phone = code + "-" + (this.state.phone);
                 console.log(phone);
                 
-                await fetch("http://192.168.0.103:3000/api/health/patient/login", {
+                await fetch("http://192.168.2.103:3000/api/health/patient/login", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -194,14 +194,14 @@ class patientLogin extends Component {
                         style={styles.button}
                         onPress={this.login}
                     >
-                        <Text style={styles.buttonText} >Login / SignUp</Text>
+                        <Text style={styles.buttonText} >Login</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity
                         style={styles.button}
                         onPress={() => this.props.navigation.navigate("PatientRegister")}
                     >
-                        <Text style={styles.buttonText} >SignUp</Text>
+                        <Text style={styles.buttonText} >Register</Text>
                     </TouchableOpacity>
                 </View>
 

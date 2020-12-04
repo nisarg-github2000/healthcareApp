@@ -15,11 +15,23 @@ import { Item, Icon } from 'native-base';
 import AsyncStorage from '@react-native-community/async-storage';
 //import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import Loader from '../../shared/Loader';
 import { Card,Input } from 'react-native-elements';
 import Textarea from 'react-native-textarea';
 
 class addRemedy extends Component {
+
+    state = {
+        loaderVisible: false
+    };
+
+    showLoader() {
+        this.setState({ loaderVisible: true })
+    }
+    hideLoader() {
+        this.setState({ loaderVisible: false });
+    }
+
     render() {
         return (
             <View>
@@ -70,8 +82,14 @@ class addRemedy extends Component {
                         }}
                     ></Textarea>
                     <TouchableOpacity 
-                    onPress={() => { console.log("Card Pressed");
-                    this.props.navigation.navigate('Home') }   }
+                    onPress={async () => {
+                        console.log("Card Pressed");
+                        await this.showLoader();
+                        await setTimeout(() => {
+                            this.hideLoader();
+                            this.props.navigation.navigate('Home')
+                        }, 3000)
+                    }   }
                     style={{
                         width: 163,
                         height: 48,
@@ -103,6 +121,10 @@ class addRemedy extends Component {
                         }}>Add</Text>
                     </TouchableOpacity>
                 </View>
+                <Loader
+                    loaderVisible={this.state.loaderVisible}
+                    animationType="fade"
+                />
             </View>
         );
     }

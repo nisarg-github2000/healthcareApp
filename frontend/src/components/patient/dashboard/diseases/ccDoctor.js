@@ -13,7 +13,19 @@ import {
     Image
 } from 'react-native';
 import { Button,Card } from 'react-native-elements';
+import Loader from './../../../shared/Loader';
+
 class ccDoctor extends Component {
+
+    state = {
+        loaderVisible: false
+      }
+      showLoader() {
+        this.setState({ loaderVisible: true })
+      }
+      hideLoader() {
+        this.setState({ loaderVisible: false });
+      }
 
     render() {
         return(
@@ -21,30 +33,30 @@ class ccDoctor extends Component {
                 <View>
                     <Image source={require('../../../../../resources/doctor.png')} style={{height:170,width:'100%',backgroundColor:"rgba(28, 82, 217, 0.22)"}} />
                     <Text style={{
-                        width: 128,
+                        width: 135,
                         height: 30,
                         overflow: "hidden",
-                        marginLeft:22,
+                        marginLeft:26,
                         marginTop:20,
                         color: "#6a6868",
                         fontSize: 22,
                         letterSpacing: 0,
                         lineHeight: 23,
-                        
+                        fontWeight:"bold",
                         fontStyle: "normal",
                         textAlign: "center", 
                      }}>
-                        Dr.John Doe</Text>
+                        Dr. Ajay Shah</Text>
                     <Text style={{
                         width: 212,
                         height: 25,
                         overflow: "hidden",
-                        marginLeft:7,
+                        marginLeft:8,
                         color: "#0274ED",
                         fontSize: 18,
                         letterSpacing: 0,
                         lineHeight: 19,
-              
+                        
                         fontStyle: "normal",
                         textAlign: "center",
                     }}>5 years of experience</Text>
@@ -77,7 +89,7 @@ class ccDoctor extends Component {
                     <View style={{
                         width: "50%",
                         height: 30,
-                        marginTop:20,
+                        marginTop:35,
                         marginLeft:100,
                         overflow: "hidden",
                         backgroundColor: "rgba(110, 112, 114, 0.31)",
@@ -99,7 +111,7 @@ class ccDoctor extends Component {
                     </View>
                     <Text style={{
                         width: 344,
-                        height: 78,
+                        height: 85,
                         overflow: "hidden",
                         marginLeft:40,
                         color: "#343232",
@@ -110,7 +122,7 @@ class ccDoctor extends Component {
                         fontStyle: "normal",
                         textAlign: "left",
                     }}
-                    >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm</Text>
+                    >I completed my MD from a renowned university in Russia and was a gold medalist there.I serve my patients as my family. Happy to help!! </Text>
                     <View style={{
                         width: "50%",
                         height: 30,
@@ -136,7 +148,7 @@ class ccDoctor extends Component {
                     </View>
                     <Text style={{
                         width: 344,
-                        height: 80,
+                        height: 180,
                         overflow: "hidden",
                         marginLeft:40,
                         color: "#343232",
@@ -147,13 +159,20 @@ class ccDoctor extends Component {
                         fontStyle: "normal",
                         textAlign: "left",
                     }}
-                    >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</Text>
+                    >Maintain at least a 1-metre distance between yourself and others to reduce your risk of infection when they cough, sneeze or speak.                                    Make wearing a mask a normal part of being around other people.
+                    </Text>
                     <Text style={{
 
                     }}></Text>
                     <TouchableOpacity 
-                    onPress={() => { console.log("Card Pressed");
-                    this.props.navigation.navigate('Booking') }   }
+                    onPress={async () => {
+                        console.log("Card Pressed");
+                        await this.showLoader();
+                        await setTimeout(() => {
+                            this.hideLoader();
+                            this.props.navigation.navigate('Booking')
+                        }, 3000)
+                      }}
                     style={{
                         width: 414,
                         height: 48,
@@ -175,6 +194,10 @@ class ccDoctor extends Component {
                         }}>BOOK NOW</Text>
                     </TouchableOpacity>
                 </View>
+                <Loader
+                    loaderVisible={this.state.loaderVisible}
+                    animationType="fade"
+                />
             </ScrollView>
         );
     } 

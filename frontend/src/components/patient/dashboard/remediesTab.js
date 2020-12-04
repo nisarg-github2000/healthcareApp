@@ -22,7 +22,16 @@ import { Card } from 'react-native-elements';
 
 class remediesTab extends Component {
 
-    
+    state = {
+        loaderVisible: false
+    };
+
+    showLoader() {
+        this.setState({ loaderVisible: true })
+    }
+    hideLoader() {
+        this.setState({ loaderVisible: false });
+    }
 
 
     render() {
@@ -44,8 +53,15 @@ class remediesTab extends Component {
                 }}>
                     Best home remedies from our community of patients and doctors.
                 </Text>
-                <TouchableOpacity onPress={() => { console.log("Card Pressed");
-                      this.props.navigation.navigate('Corona Home Remedies') }   }>
+                <TouchableOpacity 
+                onPress={async () => {
+                    console.log("Card Pressed");
+                    await this.showLoader();
+                    await setTimeout(() => {
+                        this.hideLoader();
+                        this.props.navigation.navigate('Corona Home Remedies')
+                    }, 3000)
+                }   }>
                 <Card containerStyle={{
                     boxSizing: "border-box",
                     width: 379,
@@ -63,7 +79,7 @@ class remediesTab extends Component {
                     borderRadius: 2,
                 }}>
                     <Text style={{
-                        width: 111,
+                        width: 120,
                         height: 26,
                         overflow: "visible",
                         
@@ -75,7 +91,7 @@ class remediesTab extends Component {
                         fontStyle: "normal",
                         textAlign: "center",
                     }}>
-                        Dr.John Doe
+                        Dr. Ajay Shah
                     </Text>
                     <Text style={{
                         width: 379,
@@ -445,8 +461,14 @@ class remediesTab extends Component {
             </ScrollView>
             <View>
                 <TouchableOpacity 
-                onPress={() => { console.log("Card Pressed");
-                this.props.navigation.navigate('Add Your Home Remedy') }   }
+                onPress={async () => {
+                    console.log("Card Pressed");
+                    await this.showLoader();
+                    await setTimeout(() => {
+                        this.hideLoader();
+                        this.props.navigation.navigate('Add Your Home Remedy')
+                    }, 3000)
+                }   }
                 style={{
                      width: 62,
                      height: 62,
@@ -460,6 +482,10 @@ class remediesTab extends Component {
                      justifyContent:"center",
                 }}><Ionicons name="add" size={45} color="white"/></TouchableOpacity>
             </View>
+            <Loader
+                    loaderVisible={this.state.loaderVisible}
+                    animationType="fade"
+                />
         </View>
         );
     }

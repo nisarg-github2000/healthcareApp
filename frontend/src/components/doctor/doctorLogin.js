@@ -146,7 +146,7 @@ class doctorLogin extends Component {
                         style={styles.button}
                         onPress={() => this.props.navigation.navigate("DoctorOtp")}
                     >
-                        <Text style={styles.buttonText} >Login / SignUp</Text>
+                        <Text style={styles.buttonText} >Login</Text>
                     </TouchableOpacity>
 
                     <View>
@@ -154,7 +154,7 @@ class doctorLogin extends Component {
                             style={styles.button}
                             onPress={() => this.props.navigation.navigate("DoctorRegister")}
                         >
-                            <Text style={styles.buttonText} >SignUp</Text>
+                            <Text style={styles.buttonText} >Register</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -191,6 +191,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Poppins-SemiBold',
         fontSize: 40,
         color: "#ffffff",
+        marginTop:-90,
     },
     loginPanel: {
         flex: 2,
@@ -243,6 +244,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     centeredView: {
+        marginTop:-140,
         flex: 1,
         justifyContent: "center",
         alignItems: 'flex-end',

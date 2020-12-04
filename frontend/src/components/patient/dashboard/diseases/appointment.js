@@ -17,8 +17,20 @@ import {
 import { Button,Card } from 'react-native-elements';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {BackdropContext, DatePicker} from 'react-native-propel-kit';
+import Loader from './../../../shared/Loader';
 
 class appointment extends Component {
+
+    state = {
+        loaderVisible: false
+      }
+      showLoader() {
+        this.setState({ loaderVisible: true })
+      }
+      hideLoader() {
+        this.setState({ loaderVisible: false });
+      }
+
     render() {
         
         return(
@@ -171,8 +183,14 @@ class appointment extends Component {
                     />
                 </View>
                 <TouchableOpacity 
-                onPress={() => { console.log("Card Pressed");
-                this.props.navigation.navigate('Home') }   }
+                onPress={async () => {
+                    console.log("Card Pressed");
+                    await this.showLoader();
+                    await setTimeout(() => {
+                        this.hideLoader();
+                        this.props.navigation.navigate('Home')
+                    }, 3000)
+                  }}
                 style={{
                     width: "40%",
                     height: 40,
@@ -199,6 +217,10 @@ class appointment extends Component {
                     fontStyle: "normal",
                     textAlign: "center",
                 }}>You will receive a success message from the doctor if your booking date and time is available.</Text>
+                <Loader
+                    loaderVisible={this.state.loaderVisible}
+                    animationType="fade"
+                />
             </View>
         );
     }

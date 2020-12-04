@@ -17,10 +17,22 @@ import AsyncStorage from '@react-native-community/async-storage';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { RadioButton } from 'react-native-paper';
 import { Card } from 'react-native-elements';
-
+import Loader from './../../shared/Loader';
 
 
 class editProfileDoc extends Component {
+
+    state = {
+        loaderVisible: false
+    };
+
+    showLoader() {
+        this.setState({ loaderVisible: true })
+    }
+    hideLoader() {
+        this.setState({ loaderVisible: false });
+    }
+
     render() {
         {/*const [checked, setChecked] = React.useState('first');*/}
         return(  
@@ -76,8 +88,14 @@ class editProfileDoc extends Component {
                         }}
                     />
                     <TouchableOpacity 
-                    onPress={() => { console.log("Card Pressed");
-                    this.props.navigation.navigate('Home') }   }
+                    onPress={async () => {
+                        console.log("Card Pressed");
+                        await this.showLoader();
+                        await setTimeout(() => {
+                            this.hideLoader();
+                            this.props.navigation.navigate('Home')
+                        }, 3000)
+                    }   }
                     style={{
                         width: 210,
                         height: 45,
@@ -121,7 +139,10 @@ class editProfileDoc extends Component {
                         onPress={() => setChecked('second')}
                     />
                 </View>*/}
-                
+                <Loader
+                    loaderVisible={this.state.loaderVisible}
+                    animationType="fade"
+                />
             </View>
         );
     }

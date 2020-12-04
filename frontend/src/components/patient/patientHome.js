@@ -17,7 +17,7 @@ import {
     DrawerItem
 } from '@react-navigation/drawer';
 
-import Loader from '../shared/Loader';
+
 import patientLogin from './patientLogin';
 import doctorTab from './dashboard/doctorTab';
 import profileTab from './dashboard/profileTab';
@@ -27,6 +27,7 @@ import consultNavigator from './dashboard/consultNavigator';
 import { Navigate } from 'grommet-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import remedyNavigator from './dashboard/remedyNavigator';
+import Loader from './../../../src/components/shared/Loader';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -39,6 +40,9 @@ class patientHome extends Component {
         this.setState({ loaderVisible: false });
     }
 
+    login = async () => {
+        this.showLoader();
+    }
 
     render() {
         return (

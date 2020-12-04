@@ -38,7 +38,7 @@ class patientOtpScreen extends Component {
         //     }
         // }, 2000);
 
-        fetch("http://192.168.0.103:3000/api/health/patient/verify_otp", {
+        fetch("http://192.168.2.103:3000/api/health/patient/verify_otp", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -65,7 +65,7 @@ class patientOtpScreen extends Component {
 
     resendOtp(){
         this.showLoader();
-        fetch("http://192.168.0.103:3000/api/health/patient/resend_otp", {
+        fetch("http://192.168.2.103:3000/api/health/patient/resend_otp", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

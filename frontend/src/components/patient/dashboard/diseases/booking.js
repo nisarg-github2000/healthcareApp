@@ -15,7 +15,20 @@ import {
 } from 'react-native';
 import { Button,Card } from 'react-native-elements';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Loader from './../../../shared/Loader';
+
 class booking extends Component {
+
+    state = {
+        loaderVisible: false
+      }
+      showLoader() {
+        this.setState({ loaderVisible: true })
+      }
+      hideLoader() {
+        this.setState({ loaderVisible: false });
+      }
+
     render() {
         return(
             <View>
@@ -38,8 +51,14 @@ class booking extends Component {
                     justifyContent:"center"
                 }}>
                     <TouchableOpacity 
-                    onPress={() => { console.log("Card Pressed");
-                    Linking.openURL('whatsapp://send?text=Welcome to Medo Healthcare!! Hope you found your doctor&phone=917779008052') }   }
+                    onPress={async () => {
+                        console.log("Card Pressed");
+                        await this.showLoader();
+                        await setTimeout(() => {
+                            this.hideLoader();
+                            Linking.openURL('whatsapp://send?text=Welcome to Medo Healthcare!! Hope you found your doctor&phone=917779008052')
+                        }, 1000)
+                      }}
                     style={{
                         width: 120,
                         height: 40,
@@ -72,8 +91,14 @@ class booking extends Component {
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity 
-                    onPress={() => { console.log("Card Pressed");
-                    Linking.openURL('tel:${917779008052}') }   }
+                    onPress={async () => {
+                        console.log("Card Pressed");
+                        await this.showLoader();
+                        await setTimeout(() => {
+                            this.hideLoader();
+                            Linking.openURL('tel:${917779008052}')
+                        }, 1000)
+                      }}
                     style={{
                         width: 120,
                         height: 40,
@@ -108,8 +133,14 @@ class booking extends Component {
                     </TouchableOpacity>
                 </View>
                 <TouchableOpacity 
-                onPress={() => { console.log("Card Pressed");
-                this.props.navigation.navigate('Appointment') }   }
+                onPress={async () => {
+                    console.log("Card Pressed");
+                    await this.showLoader();
+                    await setTimeout(() => {
+                        this.hideLoader();
+                        this.props.navigation.navigate('Appointment')
+                    }, 3000)
+                  }}
                 style={{
                     width: "70%",
                     height: 48,
@@ -122,6 +153,10 @@ class booking extends Component {
                     alignItems:"center",
                     justifyContent:"center"
                 }}><Text style={{fontSize:19,color:"white"}}>Book Appointment</Text></TouchableOpacity>
+                <Loader
+                    loaderVisible={this.state.loaderVisible}
+                    animationType="fade"
+                />
             </View>
         );
     }

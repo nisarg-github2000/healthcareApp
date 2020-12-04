@@ -29,7 +29,15 @@ import Loader from '../../shared/Loader';
 
 class consultTab extends Component {
 
-    
+    state = {
+        loaderVisible: false
+    }
+    showLoader() {
+        this.setState({ loaderVisible: true })
+    }
+    hideLoader() {
+        this.setState({ loaderVisible: false });
+    }
 
 
     render() {
@@ -40,8 +48,14 @@ class consultTab extends Component {
 
                   {/* Card View with proper postion */}
                   <Card style={styles.Card} 
-                      onPress={() => { console.log("Card Pressed");
-                      this.props.navigation.navigate('Cough and Cold') }   }
+                      onPress={async () => {
+                        console.log("Card Pressed");
+                        await this.showLoader();
+                        await setTimeout(() => {
+                            this.hideLoader();
+                            this.props.navigation.navigate('Cough and Cold')
+                        }, 3000)
+                    }}
                   >
                   <Card.Content style={styles.Content}>
                       <Avatar.Image size={80} source={require('../../../../resources/sneeze.png')} />
@@ -159,6 +173,10 @@ class consultTab extends Component {
                       <Text style={{textAlign:"center"}}>300/-</Text>   
                   </Card>
               </View>
+              <Loader
+                    loaderVisible={this.state.loaderVisible}
+                    animationType="fade"
+                />
           </ScrollView>
         );
     }

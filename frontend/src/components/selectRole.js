@@ -25,14 +25,15 @@ class selectRole extends Component {
                 <Text style={styles.containerText}>Select your preference</Text>
                 <TouchableOpacity
                     style={styles.button}
+                    //onPress={() => this.checkTokenD() }
                     onPress={() => this.props.navigation.navigate("DoctorHome")}
                 >
                     <Text style={styles.buttonText} >Doctor</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.button}
-                    //onPress={() => this.checkToken() }
-                    onPress={() => this.props.navigation.navigate("PatientHome")}
+                    onPress={() => this.checkToken() }
+                    //onPress={() => this.props.navigation.navigate("PatientHome")}
                 >
                     <Text style={styles.buttonText} >Patient</Text>
                 </TouchableOpacity>

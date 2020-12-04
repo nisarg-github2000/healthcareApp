@@ -14,10 +14,22 @@ import { Item, Icon, Input } from 'native-base';
 import AsyncStorage from '@react-native-community/async-storage';
 //import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import Loader from '../../shared/Loader';
 import { Card } from 'react-native-elements';
 
 class remedyDetail extends Component {
+
+    state = {
+        loaderVisible: false
+    };
+
+    showLoader() {
+        this.setState({ loaderVisible: true })
+    }
+    hideLoader() {
+        this.setState({ loaderVisible: false });
+    }
+
     render() {
         return (
         <View>
@@ -43,7 +55,7 @@ class remedyDetail extends Component {
                         
                         fontStyle: "normal",
                         textAlign: "center",
-                    }}>Dr.John Doe</Text>
+                    }}>Dr.Ajay Shah</Text>
                 </TouchableOpacity>
                 <View style={{ alignItems:"center",
                      justifyContent:"center",marginTop:40}}>
@@ -93,7 +105,16 @@ class remedyDetail extends Component {
                     textAlign: "center",
                 }}>Was it Helpful?</Text>
                 <View style={{width:160,flexDirection:"row",justifyContent:"space-around"}}>
-                    <TouchableOpacity style={{
+                    <TouchableOpacity 
+                    onPress={async () => {
+                        console.log("Card Pressed");
+                        await this.showLoader();
+                        await setTimeout(() => {
+                            this.hideLoader();
+                            this.props.navigation.navigate('Home')
+                        }, 2000)
+                    }   }
+                    style={{
                         width: 60,
                         height: 60,
                         overflow: "hidden",
@@ -110,7 +131,16 @@ class remedyDetail extends Component {
                         alignItems:"center",
                         justifyContent:"center"
                     }}><Ionicons name="thumbs-up" size={28} color="rgb(4,88,28)"/></TouchableOpacity>
-                    <TouchableOpacity style={{
+                    <TouchableOpacity 
+                    onPress={async () => {
+                        console.log("Card Pressed");
+                        await this.showLoader();
+                        await setTimeout(() => {
+                            this.hideLoader();
+                            this.props.navigation.navigate('Home')
+                        }, 2000)
+                    }   }
+                    style={{
                         width: 60,
                         height: 60,
                         overflow: "hidden",
@@ -129,6 +159,10 @@ class remedyDetail extends Component {
                     }}><Ionicons name="thumbs-down" size={28} color="rgb(162,16,16)"/></TouchableOpacity>
                 </View>
             </View>
+            <Loader
+                    loaderVisible={this.state.loaderVisible}
+                    animationType="fade"
+                />
         </View>
         ); 
     }
